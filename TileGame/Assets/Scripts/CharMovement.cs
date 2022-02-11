@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,36 +7,49 @@ public class CharMovement : MonoBehaviour
     private WaitForSeconds wfs1;
     Vector3 worldPos;
     public bool awatingCommand;
-    public bool activeUp, activeDown, activeLeft, activeRight;
+    private bool activeUp, activeDown, activeLeft, activeRight;
+    public float waitTime;
+    private float rotationSpeed;
 
     public void Awake()
     {
-        wfs1 = new WaitForSeconds(.5f);
+        wfs1 = new WaitForSeconds(waitTime);
+        
         worldPos = new Vector3(0, 0, 0);
         awatingCommand = false;
         activeDown = false;
         activeLeft = false;
         activeRight = false;
+        if (waitTime == 0)
+        {
+            waitTime = 1;
+        }
+    }
+
+    private void Start()
+    {
+        rotationSpeed = 180/waitTime;
     }
 
     private void Update()
     {
         if (awatingCommand && activeUp)
         {
-            transform.RotateAround(worldPos + new Vector3(0,0,2.5f),Vector3.right,360*Time.deltaTime);
+            transform.RotateAround(worldPos + new Vector3(0,0,2.5f),Vector3.right,rotationSpeed*Time.deltaTime);
         }
         if (awatingCommand && activeDown)
         {
-            transform.RotateAround(worldPos + new Vector3(0,0,-2.5f),Vector3.left,360*Time.deltaTime);
+            transform.RotateAround(worldPos + new Vector3(0,0,-2.5f),Vector3.left,rotationSpeed*Time.deltaTime);
         }
         if (awatingCommand && activeLeft)
         {
-            transform.RotateAround(worldPos + new Vector3(-2.5f,0,0),Vector3.forward,360*Time.deltaTime);
+            transform.RotateAround(worldPos + new Vector3(-2.5f,0,0),Vector3.forward,rotationSpeed*Time.deltaTime);
         }
         if (awatingCommand && activeRight)
         {
-            transform.RotateAround(worldPos + new Vector3(2.5f,0,0),Vector3.back,360*Time.deltaTime);
+            transform.RotateAround(worldPos + new Vector3(2.5f,0,0),Vector3.back,rotationSpeed*Time.deltaTime);
         }
+        //movement of object
 
 
 
@@ -56,18 +70,15 @@ public class CharMovement : MonoBehaviour
         {
             TranslateRight();
         }
+        //keyboard controlls
     }
 
     public void TranslateUp()
     {
-        
-        // transform.RotateAround(worldPos + new Vector3(0,0,-2.5f),Vector3.right,180);
-        
         if (!awatingCommand)
         {
             StartCoroutine(WaitUp());
             activeUp = true;
-
         }
     }
     public void TranslateDown()
@@ -94,8 +105,9 @@ public class CharMovement : MonoBehaviour
             activeRight = true;
         }
     }
+    // called to run timed coroutines.
 
-    public IEnumerator WaitUp()
+    IEnumerator WaitUp()
     {
         awatingCommand = true;
         yield return wfs1;
@@ -104,7 +116,7 @@ public class CharMovement : MonoBehaviour
         worldPos += new Vector3(0, 0, 5f);
         activeUp = false;
     }
-    public IEnumerator WaitDown()
+    IEnumerator WaitDown()
     {
         awatingCommand = true;
         yield return wfs1;
@@ -113,7 +125,7 @@ public class CharMovement : MonoBehaviour
         worldPos += new Vector3(0, 0, -5f);
         activeDown = false;
     }
-    public IEnumerator WaitLeft()
+    IEnumerator WaitLeft()
     {
         awatingCommand = true;
         yield return wfs1;
@@ -122,7 +134,7 @@ public class CharMovement : MonoBehaviour
         worldPos += new Vector3(-5, 0, 0);
         activeLeft = false;
     }
-    public IEnumerator WaitRight()
+    IEnumerator WaitRight()
     {
         awatingCommand = true;
         yield return wfs1;
