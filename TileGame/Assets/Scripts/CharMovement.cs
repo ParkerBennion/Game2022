@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharMovement : MonoBehaviour
 {
     private WaitForSeconds wfs1;
-    Vector3 worldPos;
+    Vector3 piviotPos;
     public bool awatingCommand;
     private bool activeUp, activeDown, activeLeft, activeRight;
     public float waitTime;
@@ -15,11 +15,14 @@ public class CharMovement : MonoBehaviour
     {
         wfs1 = new WaitForSeconds(waitTime);
         
-        worldPos = new Vector3(0, 0, 0);
+        piviotPos = new Vector3(0, 0, 0);
+        piviotPos = new Vector3(0, 0, 0);
+        
         awatingCommand = false;
         activeDown = false;
         activeLeft = false;
         activeRight = false;
+        
         if (waitTime == 0)
         {
             waitTime = 1;
@@ -30,24 +33,25 @@ public class CharMovement : MonoBehaviour
     {
         rotationSpeed = 180/waitTime;
     }
+    
 
     private void Update()
     {
         if (awatingCommand && activeUp)
         {
-            transform.RotateAround(worldPos + new Vector3(0,0,2.5f),Vector3.right,rotationSpeed*Time.deltaTime);
+            transform.RotateAround(piviotPos + new Vector3(0,0,2.5f),Vector3.right,rotationSpeed*Time.deltaTime);
         }
         if (awatingCommand && activeDown)
         {
-            transform.RotateAround(worldPos + new Vector3(0,0,-2.5f),Vector3.left,rotationSpeed*Time.deltaTime);
+            transform.RotateAround(piviotPos + new Vector3(0,0,-2.5f),Vector3.left,rotationSpeed*Time.deltaTime);
         }
         if (awatingCommand && activeLeft)
         {
-            transform.RotateAround(worldPos + new Vector3(-2.5f,0,0),Vector3.forward,rotationSpeed*Time.deltaTime);
+            transform.RotateAround(piviotPos + new Vector3(-2.5f,0,0),Vector3.forward,rotationSpeed*Time.deltaTime);
         }
         if (awatingCommand && activeRight)
         {
-            transform.RotateAround(worldPos + new Vector3(2.5f,0,0),Vector3.back,rotationSpeed*Time.deltaTime);
+            transform.RotateAround(piviotPos + new Vector3(2.5f,0,0),Vector3.back,rotationSpeed*Time.deltaTime);
         }
         //movement of object
 
@@ -113,7 +117,9 @@ public class CharMovement : MonoBehaviour
         yield return wfs1;
         awatingCommand = false;
         transform.rotation = new Quaternion(0, 0, 0, 0);
-        worldPos += new Vector3(0, 0, 5f);
+        
+        piviotPos += new Vector3(0, 0, 5f);
+        transform.position = piviotPos;
         activeUp = false;
     }
     IEnumerator WaitDown()
@@ -122,7 +128,9 @@ public class CharMovement : MonoBehaviour
         yield return wfs1;
         awatingCommand = false;
         transform.rotation = new Quaternion(0, 0, 0, 0);
-        worldPos += new Vector3(0, 0, -5f);
+        
+        piviotPos += new Vector3(0, 0, -5f);
+        transform.position = piviotPos;
         activeDown = false;
     }
     IEnumerator WaitLeft()
@@ -131,7 +139,9 @@ public class CharMovement : MonoBehaviour
         yield return wfs1;
         awatingCommand = false;
         transform.rotation = new Quaternion(0, 0, 0, 0);
-        worldPos += new Vector3(-5, 0, 0);
+        
+        piviotPos += new Vector3(-5, 0, 0);
+        transform.position = piviotPos;
         activeLeft = false;
     }
     IEnumerator WaitRight()
@@ -140,7 +150,9 @@ public class CharMovement : MonoBehaviour
         yield return wfs1;
         awatingCommand = false;
         transform.rotation = new Quaternion(0, 0, 0, 0);
-        worldPos += new Vector3(5, 0, 0);
+        
+        piviotPos += new Vector3(5, 0, 0);
+        transform.position = piviotPos;
         activeRight = false;
     }
 
