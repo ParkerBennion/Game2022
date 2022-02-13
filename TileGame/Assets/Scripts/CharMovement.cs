@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Material))]
 public class CharMovement : MonoBehaviour
 {
     private WaitForSeconds wfs1;
@@ -10,6 +11,7 @@ public class CharMovement : MonoBehaviour
     private bool activeUp, activeDown, activeLeft, activeRight;
     public float waitTime;
     private float rotationSpeed;
+
 
     public void Awake()
     {
@@ -27,6 +29,7 @@ public class CharMovement : MonoBehaviour
         {
             waitTime = 1;
         }
+        
     }
 
     private void Start()
@@ -154,6 +157,11 @@ public class CharMovement : MonoBehaviour
         piviotPos += new Vector3(5, 0, 0);
         transform.position = piviotPos;
         activeRight = false;
+    }
+
+    public void changeColor()
+    {
+        
     }
 
 }
