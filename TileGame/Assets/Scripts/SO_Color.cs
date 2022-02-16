@@ -6,5 +6,5 @@ using UnityEngine;
 
 public class SO_Color : ScriptableObject
 {
-    public Vector3 Color;
+    public Color tileColor;
 }
