@@ -80,6 +80,11 @@ public class CharMovement : MonoBehaviour
         //keyboard controlls
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     public void TranslateUp()
     {
         if (!awatingCommand)
