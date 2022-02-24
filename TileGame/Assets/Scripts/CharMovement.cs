@@ -8,9 +8,11 @@ public class CharMovement : MonoBehaviour
     private WaitForSeconds wfs1;
     Vector3 piviotPos;
     public bool awatingCommand;
-    private bool activeUp, activeDown, activeLeft, activeRight;
     public float waitTime;
     private float rotationSpeed;
+    private int cordinateDirection = -1;
+    public static Vector3 realPositoin;
+    public SO_Variables gameSpeed;
 
 
     public void Awake()
@@ -21,15 +23,19 @@ public class CharMovement : MonoBehaviour
         piviotPos = new Vector3(0, 0, 0);
         
         awatingCommand = false;
-        activeDown = false;
-        activeLeft = false;
-        activeRight = false;
-        
+
         if (waitTime == 0)
         {
             waitTime = 1;
         }
         
+    }
+
+    public void setWaitTime()
+    {
+        waitTime = gameSpeed.floatVar;
+        wfs1 = new WaitForSeconds(waitTime);
+        rotationSpeed = 180/gameSpeed.floatVar;
     }
 
     private void Start()
@@ -40,19 +46,19 @@ public class CharMovement : MonoBehaviour
 
     private void Update()
     {
-        if (awatingCommand && activeUp)
+        if (awatingCommand && cordinateDirection == 0)
         {
             transform.RotateAround(piviotPos + new Vector3(0,0,2.5f),Vector3.right,rotationSpeed*Time.deltaTime);
         }
-        if (awatingCommand && activeDown)
+        if (awatingCommand && cordinateDirection == 1)
         {
             transform.RotateAround(piviotPos + new Vector3(0,0,-2.5f),Vector3.left,rotationSpeed*Time.deltaTime);
         }
-        if (awatingCommand && activeLeft)
+        if (awatingCommand && cordinateDirection == 2)
         {
             transform.RotateAround(piviotPos + new Vector3(-2.5f,0,0),Vector3.forward,rotationSpeed*Time.deltaTime);
         }
-        if (awatingCommand && activeRight)
+        if (awatingCommand && cordinateDirection == 3)
         {
             transform.RotateAround(piviotPos + new Vector3(2.5f,0,0),Vector3.back,rotationSpeed*Time.deltaTime);
         }
@@ -61,107 +67,95 @@ public class CharMovement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S)&& !awatingCommand)
         {
-            TranslateDown();
+            TranslateCube(new Vector3(0,0,-5));
+            cordinateDirection = 1;
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W)&& !awatingCommand)
         {
-            TranslateUp();
+            TranslateCube(new Vector3(0,0,5));
+            cordinateDirection = 0;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A)&& !awatingCommand)
         {
-            TranslateLeft();
+            TranslateCube(new Vector3(-5,0,0));
+            cordinateDirection = 2;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D)&& !awatingCommand)
         {
-            TranslateRight();
+            TranslateCube(new Vector3(5,0,0));
+            cordinateDirection = 3;
         }
         //keyboard controlls
-    }
 
-    public void TranslateUp()
-    {
-        if (!awatingCommand)
-        {
-            StartCoroutine(WaitUp());
-            activeUp = true;
-        }
-    }
-    public void TranslateDown()
-    {
-        if (!awatingCommand)
-        {
-            StartCoroutine(WaitDown());
-            activeDown = true;
-        }
-    }
-    public void TranslateLeft()
-    {
-        if (!awatingCommand)
-        {
-            StartCoroutine(WaitLeft());
-            activeLeft = true;
-        }
-    }
-    public void TranslateRight()
-    {
-        if (!awatingCommand)
-        {
-            StartCoroutine(WaitRight());
-            activeRight = true;
-        }
-    }
-    // called to run timed coroutines.
+        realPositoin = transform.position;
 
-    IEnumerator WaitUp()
-    {
-        awatingCommand = true;
-        yield return wfs1;
-        awatingCommand = false;
-        transform.rotation = new Quaternion(0, 0, 0, 0);
-        
-        piviotPos += new Vector3(0, 0, 5f);
-        transform.position = piviotPos;
-        activeUp = false;
     }
-    IEnumerator WaitDown()
+    
+    public void inputS()
     {
-        awatingCommand = true;
-        yield return wfs1;
-        awatingCommand = false;
-        transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (!awatingCommand)
+        {
+            TranslateCube(new Vector3(0,0,-5));
+            cordinateDirection = 1;
+        }
         
-        piviotPos += new Vector3(0, 0, -5f);
-        transform.position = piviotPos;
-        activeDown = false;
     }
-    IEnumerator WaitLeft()
+    public void inputW()
     {
-        awatingCommand = true;
-        yield return wfs1;
-        awatingCommand = false;
-        transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (!awatingCommand)
+        {
+            TranslateCube(new Vector3(0,0,5));
+            cordinateDirection = 0;
+        }
         
-        piviotPos += new Vector3(-5, 0, 0);
-        transform.position = piviotPos;
-        activeLeft = false;
     }
-    IEnumerator WaitRight()
+    public void inputA()
     {
-        awatingCommand = true;
-        yield return wfs1;
-        awatingCommand = false;
-        transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (!awatingCommand)
+        {
+            TranslateCube(new Vector3(-5,0,0));
+            cordinateDirection = 2;
+        }
         
-        piviotPos += new Vector3(5, 0, 0);
-        transform.position = piviotPos;
-        activeRight = false;
     }
+    public void inputD()
+    {
+        if (!awatingCommand)
+        {
+            TranslateCube(new Vector3(5,0,0));
+            cordinateDirection = 3;
+        }
+        
+    }
+    
 
-    public void changeColor()
+
+    public void TranslateCube(Vector3 dirVector)
     {
-        
+        if (!awatingCommand)
+        {
+            StartCoroutine(WaitForVector(dirVector));
+        }
     }
+    
+    IEnumerator WaitForVector(Vector3 dirVector)
+    {
+        awatingCommand = true;
+        yield return wfs1;
+        awatingCommand = false;
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        
+        piviotPos += dirVector;
+        transform.position = piviotPos;
+    }
+    
 
 }
+
+// [Serializable]
+// public struct PassableVector
+// {
+//     public float x, y, z;
+// }
