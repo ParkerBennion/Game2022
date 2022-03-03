@@ -28,18 +28,34 @@ public class MatExplorere : MonoBehaviour
 
     public void ColorChange()
     {
-        newMat.color = codedColor;
+        newMat.color += codedColor;
         Debug.Log("color Change");
         
         //applies color
     }
 
+    private void ColorStrip()
+    {
+        newMat.color -= codedColor;
+        Debug.Log("stripped Paint");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        ColorChange();
-        Debug.Log("Collision Made");
-        Destroy(gameObject);
-        
+        if (other.gameObject.CompareTag("Paint"))
+        {
+            ColorChange();
+            Debug.Log("Collision Made");
+            Destroy(gameObject); 
+        }
+
+        if (other.gameObject.CompareTag("Thinner"))
+        {
+            ColorStrip();
+            Debug.Log("Collision Made");
+            Destroy(gameObject);
+        }
+
         //activates scripts
     }
 
