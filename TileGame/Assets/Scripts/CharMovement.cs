@@ -18,7 +18,7 @@ public class CharMovement : MonoBehaviour
     {
         wfs1 = new WaitForSeconds(waitTime);
         
-        piviotPos = new Vector3(0, 0, 0);
+        piviotPos = new Vector3(0, 0, 0); 
         piviotPos = new Vector3(0, 0, 0);
         
         awatingCommand = false;
@@ -27,7 +27,6 @@ public class CharMovement : MonoBehaviour
         {
             waitTime = 1;
         }
-        
     }
 
     public void setWaitTime()
@@ -66,22 +65,22 @@ public class CharMovement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.S)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.S)&& !awatingCommand)
         {
             TranslateCube(new Vector3(0,0,-5));
             cordinateDirection = 1;
         }
-        if (Input.GetKeyDown(KeyCode.W)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.W)&& !awatingCommand)
         {
             TranslateCube(new Vector3(0,0,5));
             cordinateDirection = 0;
         }
-        if (Input.GetKeyDown(KeyCode.A)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.A)&& !awatingCommand)
         {
             TranslateCube(new Vector3(-5,0,0));
             cordinateDirection = 2;
         }
-        if (Input.GetKeyDown(KeyCode.D)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.D)&& !awatingCommand)
         {
             TranslateCube(new Vector3(5,0,0));
             cordinateDirection = 3;
