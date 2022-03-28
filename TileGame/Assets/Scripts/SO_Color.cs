@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -23,8 +21,7 @@ public class SO_Color : ScriptableObject
         // redValue = tileColor.color.r;
         // greenValue = tileColor.color.g;
         // blueValue = tileColor.color.b;
-        // alphaValue = tileColor.color.a;
-        //
+        // alphaValue = tileColor.color.a;|
         thisTilesColor = tileColor.color;
     }
     
@@ -46,7 +43,7 @@ public class SO_Color : ScriptableObject
         thisTilesColor.g = Mathf.Clamp(thisTilesColor.g, 0, 1);
         thisTilesColor.b = Mathf.Clamp(thisTilesColor.b, 0, 1);
         
-        Debug.Log(thisTilesColor+"thisTilesColor");
+        //Debug.Log(thisTilesColor+"thisTilesColor");
 
         tileColor.color = thisTilesColor;
     }

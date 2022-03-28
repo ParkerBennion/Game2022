@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Material))]
 public class CharMovement : MonoBehaviour
@@ -12,6 +13,10 @@ public class CharMovement : MonoBehaviour
     private int cordinateDirection = -1;
     public static Vector3 realPositoin;
     public SO_Variables gameSpeed;
+    public GameObject LineToChange;
+    public Vector3 LinesScale;
+    public UnityEvent startMove;
+    public UnityEvent endMove;
 
 
     public void Awake()
@@ -39,8 +44,10 @@ public class CharMovement : MonoBehaviour
     private void Start()
     {
         rotationSpeed = 180/waitTime;
+        LinesScale = LineToChange.transform.localScale;
+        LineToChange.transform.localScale = LinesScale;
     }
-    
+
 
     private void Update()
     {
@@ -67,21 +74,25 @@ public class CharMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S)&& !awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(0,0,-5));
             cordinateDirection = 1;
         }
         if (Input.GetKey(KeyCode.W)&& !awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(0,0,5));
             cordinateDirection = 0;
         }
         if (Input.GetKey(KeyCode.A)&& !awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(-5,0,0));
             cordinateDirection = 2;
         }
         if (Input.GetKey(KeyCode.D)&& !awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(5,0,0));
             cordinateDirection = 3;
         }
@@ -89,12 +100,20 @@ public class CharMovement : MonoBehaviour
 
         realPositoin = transform.position;
 
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LinesScale += new Vector3(0,0,10);
+            LineToChange.transform.localScale += LinesScale;
+        }
+
     }
     
     public void inputS()
     {
         if (!awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(0,0,-5));
             cordinateDirection = 1;
         }
@@ -104,6 +123,7 @@ public class CharMovement : MonoBehaviour
     {
         if (!awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(0,0,5));
             cordinateDirection = 0;
         }
@@ -113,6 +133,7 @@ public class CharMovement : MonoBehaviour
     {
         if (!awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(-5,0,0));
             cordinateDirection = 2;
         }
@@ -122,6 +143,7 @@ public class CharMovement : MonoBehaviour
     {
         if (!awatingCommand)
         {
+            startMove.Invoke();
             TranslateCube(new Vector3(5,0,0));
             cordinateDirection = 3;
         }
@@ -147,6 +169,8 @@ public class CharMovement : MonoBehaviour
         
         piviotPos += dirVector;
         transform.position = piviotPos;
+        
+        endMove.Invoke();
     }
     
 

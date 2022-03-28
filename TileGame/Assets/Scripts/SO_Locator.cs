@@ -8,7 +8,7 @@ public class SO_Locator : ScriptableObject
     public void SetPosition(Transform cord)
     {
         location = cord.position;
-        Debug.Log(location);
+        //Debug.Log(location);
     }
 
     public void GoToPosition(Transform cord)
@@ -24,7 +24,7 @@ public class SO_Locator : ScriptableObject
 
     public void printer()
     {
-        Debug.Log(location + " location");
-        Debug.Log(currentCord + " currentCord");
+        //Debug.Log(location + " location");
+        //Debug.Log(currentCord + " currentCord");
     }
 }
