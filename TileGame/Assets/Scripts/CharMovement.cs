@@ -13,10 +13,10 @@ public class CharMovement : MonoBehaviour
     private int cordinateDirection = -1;
     public static Vector3 realPositoin;
     public SO_Variables gameSpeed;
-    public GameObject LineToChange;
-    public Vector3 LinesScale;
     public UnityEvent startMove;
     public UnityEvent endMove;
+    public SO_Variables waitTimeSO;
+    
 
 
     public void Awake()
@@ -44,8 +44,7 @@ public class CharMovement : MonoBehaviour
     private void Start()
     {
         rotationSpeed = 180/waitTime;
-        LinesScale = LineToChange.transform.localScale;
-        LineToChange.transform.localScale = LinesScale;
+        
     }
 
 
@@ -101,11 +100,7 @@ public class CharMovement : MonoBehaviour
         realPositoin = transform.position;
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LinesScale += new Vector3(0,0,10);
-            LineToChange.transform.localScale += LinesScale;
-        }
+        
 
     }
     

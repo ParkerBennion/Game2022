@@ -5,4 +5,6 @@ using UnityEngine;
 public class SO_CastDat : ScriptableObject
 {
     public RaycastHit rayInfo;
+    
+    
 }
