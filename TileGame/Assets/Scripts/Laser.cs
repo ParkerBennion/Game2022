@@ -19,7 +19,7 @@ public class Laser : MonoBehaviour
             Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward)*hit.rayInfo.distance,Color.cyan);
             //Debug.Log("did Hit");
             //Instantiate(ScriptableObject.CreateInstance<SO_Variables>());
-            Debug.Log(hit.rayInfo.collider.name);
+            //Debug.Log(hit.rayInfo.collider.name);
         }
     }
 }
