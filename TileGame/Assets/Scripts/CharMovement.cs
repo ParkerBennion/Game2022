@@ -8,7 +8,6 @@ public class CharMovement : MonoBehaviour
     private WaitForSeconds wfs1;
     Vector3 piviotPos;
     public bool awatingCommand;
-    public float waitTime;
     private float rotationSpeed;
     private int cordinateDirection = -1;
     public static Vector3 realPositoin;
@@ -21,29 +20,29 @@ public class CharMovement : MonoBehaviour
 
     public void Awake()
     {
-        wfs1 = new WaitForSeconds(waitTime);
+        wfs1 = new WaitForSeconds(waitTimeSO.floatVar);
         
         piviotPos = new Vector3(0, 0, 0); 
         piviotPos = new Vector3(0, 0, 0);
         
         awatingCommand = false;
 
-        if (waitTime == 0)
+        if (waitTimeSO.floatVar == 0)
         {
-            waitTime = 1;
+            waitTimeSO.floatVar = 1;
         }
     }
 
     public void setWaitTime()
     {
-        waitTime = gameSpeed.floatVar;
-        wfs1 = new WaitForSeconds(waitTime);
+        waitTimeSO.floatVar = gameSpeed.floatVar;
+        wfs1 = new WaitForSeconds(waitTimeSO.floatVar);
         rotationSpeed = 180/gameSpeed.floatVar;
     }
 
     private void Start()
     {
-        rotationSpeed = 180/waitTime;
+        rotationSpeed = 180/waitTimeSO.floatVar;
         
     }
 
