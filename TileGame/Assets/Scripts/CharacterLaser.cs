@@ -15,11 +15,11 @@ public class CharacterLaser : MonoBehaviour
     
     public void TransmitLaser()
     {
-        if (ObjectHitData.rayInfo.collider.name == "1")
+        if (ObjectHitData.rayInfo.collider.name.Equals("1"))
         {
             rightLaser.transform.localScale = new Vector3(1f, 0, 20);
         }
-        if (ObjectHitData.rayInfo.collider.name == "RightBox")
+        if (ObjectHitData.rayInfo.collider.name.Equals("RightBox"))
         {
             leftLaser.transform.localScale = new Vector3(1f, 0, 20);
         }
@@ -27,21 +27,22 @@ public class CharacterLaser : MonoBehaviour
         {
             frontLaser.transform.localScale = new Vector3(1f, 0, 20);
         }
-        if (ObjectHitData.rayInfo.collider.name == "FrontBox")
+        if (ObjectHitData.rayInfo.ToString() == "FrontBox")
         {
             rearLaser.transform.localScale = new Vector3(1f, 0, 20);
         }
-        else
+        if (ObjectHitData.rayInfo.collider.name.Equals("BackDrop"))
         {
-            rightLaser.transform.localScale = new Vector3(1f, 0, 2);
-            leftLaser.transform.localScale = new Vector3(1f, 0, 4);
-            rearLaser.transform.localScale = new Vector3(1f, 0, 6);
-            frontLaser.transform.localScale = new Vector3(1f, 0, 8);
+            rightLaser.transform.localScale = new Vector3(1f, 0, 0);
+            leftLaser.transform.localScale = new Vector3(1f, 0, 0);
+            rearLaser.transform.localScale = new Vector3(1f, 0, 0);
+            frontLaser.transform.localScale = new Vector3(1f, 0, 0);
             Debug.Log(ObjectHitData.rayInfo.collider.name);
         }
     }
-    //this doesnt worlk
-    
+    //only one laser is allowed to hit at a time. this creates issues but will have to be put off for later date
+    // need to make lasers activate off of call instead of manually activating
+
 
     private void Update()
     {

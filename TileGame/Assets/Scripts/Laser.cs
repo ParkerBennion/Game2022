@@ -60,7 +60,7 @@ public class Laser : MonoBehaviour
         }
         else
         {
-            lineRendr.transform.localScale = new Vector3(1f, 0, Mathf.Infinity);
+            lineRendr.transform.localScale = new Vector3(1f, 0, 150);
         }
     }
 }
