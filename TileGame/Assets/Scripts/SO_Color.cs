@@ -10,7 +10,9 @@ public class SO_Color : ScriptableObject
     public float boundTwo;
     public string colorVar;
     private float redValue,greenValue,blueValue,alphaValue;
-    private Color thisTilesColor;
+    public Color thisTilesColor;
+    public Color passedColor;
+    
     
 
     
@@ -46,6 +48,7 @@ public class SO_Color : ScriptableObject
         //Debug.Log(thisTilesColor+"thisTilesColor");
 
         tileColor.color = thisTilesColor;
+        passedColor = thisTilesColor;
     }
 
     public void LogColor()

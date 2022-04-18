@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: TileColorVale
   m_EditorClassIdentifier: 
   tileColor: {fileID: 2100000, guid: facfd63f353053f4ba7c6d9e3c57d160, type: 2}
+  otherColor: {fileID: 0}
+  boundOne: 0
+  boundTwo: 0
+  colorVar: 
+  thisTilesColor: {r: 0.9022858, g: 0.8527885, b: 1, a: 1}
+  passedColor: {r: 0.9022858, g: 0.8527885, b: 1, a: 1}
