@@ -34,10 +34,16 @@ public class SO_Color : ScriptableObject
         // greenValue -= otherColor.color.g;
         //thisTilesColor.r -= redValue;
         
-        thisTilesColor.r += otherColor.color.r/4;
-        thisTilesColor.g += otherColor.color.g/4;
-        thisTilesColor.b += otherColor.color.b/4;
-        thisTilesColor.a += otherColor.color.a/4;
+        thisTilesColor.r += otherColor.color.r;
+        thisTilesColor.g += otherColor.color.g;
+        thisTilesColor.b += otherColor.color.b;
+        //thisTilesColor.a += otherColor.color.a;
+
+        thisTilesColor.r *= .5f;
+        thisTilesColor.g *= .5f;
+        thisTilesColor.b *= .5f;
+        thisTilesColor.a = .7f;
+        
        
 
         thisTilesColor.a = Mathf.Clamp(thisTilesColor.a, 0, 1);

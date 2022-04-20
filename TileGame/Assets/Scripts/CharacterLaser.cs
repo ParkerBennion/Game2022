@@ -48,7 +48,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorFront.colorGradient = gradient;
@@ -62,8 +62,8 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-                new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
+                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.3f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorFront.colorGradient = gradient;
 
@@ -76,7 +76,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorFront.colorGradient = gradient;
@@ -90,7 +90,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorFront.colorGradient = gradient;

@@ -67,7 +67,7 @@ public class MatExplorere : MonoBehaviour
         MeshRenderer thisRndr = GetComponent<MeshRenderer>();
 
         Material randomMaterial;
-        (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,0f,1f,0f,1f,0f,1f);
+        (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,1f,1f,1f,1f,.7f,.7f);
         codedColor = randomMaterial.color;
         
         //goes crazy
