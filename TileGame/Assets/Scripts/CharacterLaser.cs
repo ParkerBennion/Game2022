@@ -51,7 +51,7 @@ public class CharacterLaser : MonoBehaviour
                 new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
-            lineColorFront.colorGradient = gradient;
+            lineColorRight.colorGradient = gradient;
             
         }
         if (ObjectHitData.rayInfo.collider.name.Equals("RightBox"))
@@ -65,7 +65,7 @@ public class CharacterLaser : MonoBehaviour
                 new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.3f), new GradientAlphaKey(0, 1.0f) }
             );
-            lineColorFront.colorGradient = gradient;
+            lineColorLeft.colorGradient = gradient;
 
         }
         if (ObjectHitData.rayInfo.collider.name == "RearBox")
@@ -93,7 +93,7 @@ public class CharacterLaser : MonoBehaviour
                 new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
-            lineColorFront.colorGradient = gradient;
+            lineColorRear.colorGradient = gradient;
 
         }
         if (ObjectHitData.rayInfo.collider.name.Equals("BackDrop"))

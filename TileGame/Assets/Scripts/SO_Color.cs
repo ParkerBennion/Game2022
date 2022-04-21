@@ -25,6 +25,7 @@ public class SO_Color : ScriptableObject
         // blueValue = tileColor.color.b;
         // alphaValue = tileColor.color.a;|
         thisTilesColor = tileColor.color;
+        thisTilesColor.a = .7f;
     }
     
     public void AddColors()
