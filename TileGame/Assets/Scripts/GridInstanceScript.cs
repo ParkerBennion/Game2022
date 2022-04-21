@@ -29,12 +29,6 @@ public class GridInstanceScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            
-            SpawnCube();
-        }
-
         if (Input.GetKeyDown(KeyCode.K))
         {
             generateLevel();
@@ -55,7 +49,7 @@ public class GridInstanceScript : MonoBehaviour
     IEnumerator GenerateNextLevel()
     {
         var setRotation = transform.rotation;
-        awaitCubePlace = new WaitForSeconds(.3f);
+        awaitCubePlace = new WaitForSeconds(.1f);
         cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 1));
 
         while (currentCube < finalCube)
@@ -88,6 +82,8 @@ public class GridInstanceScript : MonoBehaviour
             cubeSpawn += new Vector3(5, 0, 0);
             yield return awaitCubePlace;
         }
+
+        currentCube = 0;
         
         
         
