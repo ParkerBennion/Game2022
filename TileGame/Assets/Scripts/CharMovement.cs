@@ -15,6 +15,7 @@ public class CharMovement : MonoBehaviour
     public UnityEvent startMove;
     public UnityEvent endMove;
     public SO_Variables waitTimeSO;
+    public SO_BoolArray canMoveBool;
     
 
 
@@ -105,7 +106,7 @@ public class CharMovement : MonoBehaviour
     
     public void inputS()
     {
-        if (!awatingCommand)
+        if (!awatingCommand && !canMoveBool.BM)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(0,0,-5));
@@ -115,7 +116,7 @@ public class CharMovement : MonoBehaviour
     }
     public void inputW()
     {
-        if (!awatingCommand)
+        if (!awatingCommand && !canMoveBool.TM)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(0,0,5));
@@ -125,7 +126,7 @@ public class CharMovement : MonoBehaviour
     }
     public void inputA()
     {
-        if (!awatingCommand)
+        if (!awatingCommand && !canMoveBool.ML)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(-5,0,0));
@@ -135,7 +136,7 @@ public class CharMovement : MonoBehaviour
     }
     public void inputD()
     {
-        if (!awatingCommand)
+        if (!awatingCommand && !canMoveBool.MR)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(5,0,0));

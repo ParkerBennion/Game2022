@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1365127d5f8c9ec499191df309b69f2d, type: 3}
-  m_Name: PaintCarePackages
+  m_Script: {fileID: 11500000, guid: 7852ecf1ef585644b8cb0af608c762ae, type: 3}
+  m_Name: DirectionBool
   m_EditorClassIdentifier: 
-  intVar: 2
-  floatVar: 0
-  stringVar: 
-  boolVar: 0
-  vector3Var: {x: 0, y: 0, z: 0}
-  transformVar: {fileID: 0}
-  objVar: {fileID: 0}
+  TR: 0
+  TM: 0
+  TL: 0
+  ML: 0
+  MR: 0
+  BL: 0
+  BM: 0
+  BR: 0

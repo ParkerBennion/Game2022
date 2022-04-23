@@ -11,12 +11,10 @@ public class TriggerPass : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
         MeshRenderer thisCubeRndr = GetComponent<MeshRenderer>();
         paintSplotch = thisCubeRndr.material;
         giveColorToTile.otherColor = paintSplotch;
         giveColorToTile.AddColors();
         Destroy(gameObject);
-        
     }
 }
