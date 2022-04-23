@@ -1,13 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridInstanceScript : MonoBehaviour
 {
     public GridLayout gridhere;
-    public Grid otherGrid;
-    public GridBrushBase gridBrush;
     public GameObject instanceObj;
     private Vector3 cubeSpawn;
     private Vector3 cubeSpawn2;
@@ -26,15 +22,6 @@ public class GridInstanceScript : MonoBehaviour
         Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
 
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            generateLevel();
-        }
-    }
-
     private void SpawnCube()
     {
         var setRotation = transform.rotation;

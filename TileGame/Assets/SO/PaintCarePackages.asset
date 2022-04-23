@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1365127d5f8c9ec499191df309b69f2d, type: 3}
-  m_Name: GameSpeed
+  m_Name: PaintCarePackages
   m_EditorClassIdentifier: 
   intVar: 0
-  floatVar: 0.3
+  floatVar: 0
   stringVar: 
   boolVar: 0
   vector3Var: {x: 0, y: 0, z: 0}

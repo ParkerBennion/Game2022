@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,7 +18,8 @@ public class MatExplorere : MonoBehaviour
         codedColor.a = colorCode.w;
         MeshRenderer rndr = GetComponent<MeshRenderer>();
         rndr.material.color = codedColor;
-        
+        SetRandom();
+
         //manually sets a color
     }
 
@@ -40,7 +38,6 @@ public class MatExplorere : MonoBehaviour
     private void ColorStrip()
     {
         newMat.color -= codedColor;
-        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -18,13 +18,16 @@ public class SO_Color : ScriptableObject
     
     public void ResetCanvas()
     {
-        tileColor.color = Color.clear;
+        tileColor.color = Color.white;
         
         // redValue = tileColor.color.r;
         // greenValue = tileColor.color.g;
         // blueValue = tileColor.color.b;
         // alphaValue = tileColor.color.a;|
         thisTilesColor = tileColor.color;
+        // thisTilesColor.r = .0f;
+        // thisTilesColor.g = .0f;
+        // thisTilesColor.b = .0f;
         thisTilesColor.a = .7f;
     }
     
