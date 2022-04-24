@@ -37,7 +37,7 @@ public class GridInstanceScript : MonoBehaviour
     {
         var setRotation = transform.rotation;
         awaitCubePlace = new WaitForSeconds(.1f);
-        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 1));
+        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 2));
 
         while (currentCube < finalCube)
         {
@@ -49,7 +49,7 @@ public class GridInstanceScript : MonoBehaviour
         }
 
         currentCube = 0;
-        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 2));
+        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 3));
 
         while (currentCube < finalCube)
         {
@@ -60,7 +60,7 @@ public class GridInstanceScript : MonoBehaviour
         }
         
         currentCube = 0;
-        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 3));
+        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 4));
         while (currentCube < finalCube)
             
         {
