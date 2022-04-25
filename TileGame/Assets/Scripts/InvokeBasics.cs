@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InvokeBasics : MonoBehaviour
 {
-    public UnityEvent startBehaviour, awakeBehaviour, runBehaviour, disableBehaviour, destroyBehaviour, quitBehaviour;
+    public UnityEvent startBehaviour, awakeBehaviour, triggerBehaviour, runBehaviour, disableBehaviour, destroyBehaviour, quitBehaviour;
 
 
     public void Awake()
@@ -36,4 +36,15 @@ public class InvokeBasics : MonoBehaviour
     {
         quitBehaviour.Invoke();
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+      
+       if (other.gameObject.CompareTag("Player"))
+        {
+            triggerBehaviour.Invoke();
+        }
+    }
+    
+    
 }
