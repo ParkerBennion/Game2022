@@ -6,27 +6,21 @@ public class GridInstanceScript : MonoBehaviour
     public GridLayout gridhere;
     public GameObject instanceObj;
     private Vector3 cubeSpawn;
-    private Vector3 cubeSpawn2;
     public int currentCube=0, finalCube=1;
     private WaitForSeconds awaitCubePlace;
+    public GameObject gridHolderObj;
     
 
     private void Start()
     {
-        // cubeSpawn = otherGrid.LocalToCell(new Vector3(3,0,0));
-        // cubeSpawn2 = otherGrid.LocalToCell(new Vector3(-3,0,0));
+
         var setRotation = transform.rotation;
-        // Instantiate(instanceObj, cubeSpawn, setRotation);
-        // Instantiate(instanceObj, cubeSpawn2, setRotation);
+
         cubeSpawn = gridhere.CellToLocal(new Vector3Int(30, 1, 1));
-        Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
+        //Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
 
     }
-    private void SpawnCube()
-    {
-        var setRotation = transform.rotation;
-        Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
-    }
+
 
     public void generateLevel()
     {
@@ -35,9 +29,9 @@ public class GridInstanceScript : MonoBehaviour
     
     IEnumerator GenerateNextLevel()
     {
-        var setRotation = transform.rotation;
+        var setRotation = new Quaternion(0,0,0,0);
         awaitCubePlace = new WaitForSeconds(.1f);
-        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 2));
+        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-10, 0, 10));
 
         while (currentCube < finalCube)
         {
@@ -46,10 +40,11 @@ public class GridInstanceScript : MonoBehaviour
             currentCube += 1;
             cubeSpawn += new Vector3(5, 0, 0);
             yield return awaitCubePlace;
+            
         }
 
         currentCube = 0;
-        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 3));
+        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-10, 0, 15));
 
         while (currentCube < finalCube)
         {
@@ -60,7 +55,7 @@ public class GridInstanceScript : MonoBehaviour
         }
         
         currentCube = 0;
-        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-2, 0, 4));
+        cubeSpawn = gridhere.CellToWorld(new Vector3Int(-10, 0, 20));
         while (currentCube < finalCube)
             
         {
@@ -71,6 +66,7 @@ public class GridInstanceScript : MonoBehaviour
         }
 
         currentCube = 0;
+        gridHolderObj.SetActive(false);
         
         
         

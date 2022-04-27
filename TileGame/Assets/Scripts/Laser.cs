@@ -12,6 +12,7 @@ public class Laser : MonoBehaviour
     public bool allowTimer = true;
     public GameObject lineRendr;
     public SO_CallAction callRayHit;
+    public SO_BoolSwitcher hitPlayer;
     
     // private void Update()
     // {
@@ -57,6 +58,15 @@ public class Laser : MonoBehaviour
             //Debug.Log(hit.rayInfo.collider.name);
             lineRendr.transform.localScale = new Vector3(1f, 0, hit.rayInfo.distance);
             callRayHit.CallAction();
+            if (hit.rayInfo.collider.name == "RearBox")
+            {
+                hitPlayer.specialBool = true;
+            }
+            else
+            {
+                hitPlayer.specialBool = false;
+                Debug.Log("boolFalse");
+            }
         }
         else
         {
