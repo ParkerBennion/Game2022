@@ -65,7 +65,6 @@ public class Laser : MonoBehaviour
             else
             {
                 hitPlayer.specialBool = false;
-                Debug.Log("boolFalse");
             }
         }
         else

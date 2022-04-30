@@ -45,7 +45,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.thisTilesColor, 0.0f), new GradientColorKey(cubeColor.thisTilesColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorRight.colorGradient = gradient;
@@ -59,7 +59,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.thisTilesColor, 0.0f), new GradientColorKey(cubeColor.thisTilesColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.3f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorLeft.colorGradient = gradient;
@@ -73,7 +73,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.thisTilesColor, 0.0f), new GradientColorKey(cubeColor.thisTilesColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorFront.colorGradient = gradient;
@@ -87,7 +87,7 @@ public class CharacterLaser : MonoBehaviour
             float alpha = 1.0f;
             Gradient gradient = new Gradient();
             gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(cubeColor.passedColor, 0.0f), new GradientColorKey(cubeColor.passedColor, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(cubeColor.thisTilesColor, 0.0f), new GradientColorKey(cubeColor.thisTilesColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(0, 1.0f) }
             );
             lineColorRear.colorGradient = gradient;
@@ -126,7 +126,7 @@ public class CharacterLaser : MonoBehaviour
         {
             laserHit.transform.localScale = new Vector3(1f, 0, 100);
         }
-        Debug.Log(laserHit.transform.rotation);
+        //Debug.Log(laserHit.transform.rotation);
     }
 
     public void resetLaser()
@@ -138,14 +138,14 @@ public class CharacterLaser : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log(ObjectHitData.rayInfo.collider.name);
-            TransmitLaser();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.I))
+    //     {
+    //         //Debug.Log(ObjectHitData.rayInfo.collider.name);
+    //         TransmitLaser();
+    //     }
+    // }
     
     /*lr = GetComponent<LineRenderer>();
     lr.material = new Material(Shader.Find("Sprites/Default"));

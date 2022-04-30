@@ -16,6 +16,7 @@ public class CharMovement : MonoBehaviour
     public UnityEvent endMove;
     public SO_Variables waitTimeSO;
     public SO_BoolArray canMoveBool;
+    public SO_BoolSwitcher CanMoveMasterSwitch;
     
 
 
@@ -71,25 +72,25 @@ public class CharMovement : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.S)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.S)&& !awatingCommand && CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(0,0,-5));
             cordinateDirection = 1;
         }
-        if (Input.GetKey(KeyCode.W)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.W)&& !awatingCommand && CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(0,0,5));
             cordinateDirection = 0;
         }
-        if (Input.GetKey(KeyCode.A)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.A)&& !awatingCommand && CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(-5,0,0));
             cordinateDirection = 2;
         }
-        if (Input.GetKey(KeyCode.D)&& !awatingCommand)
+        if (Input.GetKey(KeyCode.D)&& !awatingCommand && CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(5,0,0));
@@ -106,7 +107,7 @@ public class CharMovement : MonoBehaviour
     
     public void inputS()
     {
-        if (!awatingCommand && !canMoveBool.BM)
+        if (!awatingCommand && !canMoveBool.BM&& CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(0,0,-5));
@@ -116,7 +117,7 @@ public class CharMovement : MonoBehaviour
     }
     public void inputW()
     {
-        if (!awatingCommand && !canMoveBool.TM)
+        if (!awatingCommand && !canMoveBool.TM&& CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(0,0,5));
@@ -126,7 +127,7 @@ public class CharMovement : MonoBehaviour
     }
     public void inputA()
     {
-        if (!awatingCommand && !canMoveBool.ML)
+        if (!awatingCommand && !canMoveBool.ML&& CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(-5,0,0));
@@ -136,7 +137,7 @@ public class CharMovement : MonoBehaviour
     }
     public void inputD()
     {
-        if (!awatingCommand && !canMoveBool.MR)
+        if (!awatingCommand && !canMoveBool.MR&& CanMoveMasterSwitch.specialBool)
         {
             startMove.Invoke();
             TranslateCube(new Vector3(5,0,0));

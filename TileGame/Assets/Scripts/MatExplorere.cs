@@ -29,7 +29,7 @@ public class MatExplorere : MonoBehaviour
         newMat.color += codedColor;
         if (newMat.color.a > 1)
         {
-            Debug.Log(newMat.color.a);
+            //Debug.Log(newMat.color.a);
         }
 
         //applies color
@@ -64,7 +64,7 @@ public class MatExplorere : MonoBehaviour
         MeshRenderer thisRndr = GetComponent<MeshRenderer>();
 
         Material randomMaterial;
-        (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,1f,1f,1f,1f,.7f,.7f);
+        (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,.4f,1f,.6f,1f,.7f,.7f);
         codedColor = randomMaterial.color;
         
         //goes crazy

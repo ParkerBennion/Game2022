@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class MovePlaymat : MonoBehaviour
 {
-    private float current=20, target =40, startTime;
+    private float current=20, target =55, startTime;
     public bool go;
     public float duration = 2;
     private WaitForSeconds wfs;
+    public GameObject levelSpawner;
 
     public GameObject triggerVol;
     //public GameObject platform;
@@ -30,6 +31,7 @@ public class MovePlaymat : MonoBehaviour
             float t = (Time.time - startTime) / duration;
 
             transform.position = new Vector3(0, -1, Mathf.SmoothStep(current, target, t));
+            
         }
     }
     
@@ -52,7 +54,8 @@ public class MovePlaymat : MonoBehaviour
         yield return wfs;
         go = false;
         current = transform.position.z;
-        target = current + 20;
+        target = current + 35;
         triggerVol.SetActive(true);
+        levelSpawner.SetActive(true);
     }
 }

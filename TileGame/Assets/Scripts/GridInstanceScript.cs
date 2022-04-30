@@ -66,7 +66,7 @@ public class GridInstanceScript : MonoBehaviour
         }
 
         currentCube = 0;
-        gridHolderObj.SetActive(false);
+        //gridHolderObj.SetActive(false);
         
         
         
