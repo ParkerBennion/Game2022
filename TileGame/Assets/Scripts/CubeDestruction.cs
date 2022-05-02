@@ -16,6 +16,8 @@ public class CubeDestruction : MonoBehaviour
     public SO_ColorHolder laserColor;
     public SO_Color TileColor;
     public float allowence =.25f;
+
+    public GameObject setpingTile;
     //private Vector3 origin;
 
     private void Start()
@@ -78,6 +80,7 @@ public class CubeDestruction : MonoBehaviour
             {
                 frags[i].AddExplosionForce(1000,transform.position,500);
             }
+            setpingTile.SetActive(true);
         }
     }
 
