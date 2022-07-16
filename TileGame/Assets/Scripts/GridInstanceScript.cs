@@ -8,17 +8,14 @@ public class GridInstanceScript : MonoBehaviour
     private Vector3 cubeSpawn;
     public int currentCube=0, finalCube=1;
     private WaitForSeconds awaitCubePlace;
-    public GameObject gridHolderObj;
-    
+
 
     private void Start()
     {
-
         var setRotation = transform.rotation;
 
         cubeSpawn = gridhere.CellToLocal(new Vector3Int(30, 1, 1));
         //Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
-
     }
 
 
@@ -36,7 +33,7 @@ public class GridInstanceScript : MonoBehaviour
         while (currentCube < finalCube)
         {
             
-            Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
+            Instantiate(instanceObj, cubeSpawn, setRotation);
             currentCube += 1;
             cubeSpawn += new Vector3(5, 0, 0);
             yield return awaitCubePlace;
@@ -48,7 +45,7 @@ public class GridInstanceScript : MonoBehaviour
 
         while (currentCube < finalCube)
         {
-            Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
+            Instantiate(instanceObj, cubeSpawn, setRotation);
             currentCube += 1;
             cubeSpawn += new Vector3(5, 0, 0);
             yield return awaitCubePlace;
@@ -59,7 +56,7 @@ public class GridInstanceScript : MonoBehaviour
         while (currentCube < finalCube)
             
         {
-            Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
+            Instantiate(instanceObj, cubeSpawn, setRotation);
             currentCube += 1;
             cubeSpawn += new Vector3(5, 0, 0);
             yield return awaitCubePlace;

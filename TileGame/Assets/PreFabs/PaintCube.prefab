@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8402704686620278482}
   - component: {fileID: 8402704686620278485}
   - component: {fileID: 8402704686620278484}
+  - component: {fileID: 858928810852664831}
   m_Layer: 0
   m_Name: PaintCube
   m_TagString: Paint
@@ -153,3 +154,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMat: {fileID: 2100000, guid: 15a70051466771040a10bc286ebcba55, type: 2}
   colorCode: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &858928810852664831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402704686620278487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee69475ae5cbd34f8cc851b72d6d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startBehaviour:
+    m_PersistentCalls:
+      m_Calls: []
+  awakeBehaviour:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerBehaviour:
+    m_PersistentCalls:
+      m_Calls: []
+  runBehaviour:
+    m_PersistentCalls:
+      m_Calls: []
+  disableBehaviour:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyBehaviour:
+    m_PersistentCalls:
+      m_Calls: []
+  quitBehaviour:
+    m_PersistentCalls:
+      m_Calls: []

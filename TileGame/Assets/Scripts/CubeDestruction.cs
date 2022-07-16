@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class CubeDestruction : MonoBehaviour
 {
-    public GameObject cube, cubeDamege1, cubeDamage2, cubeFrag1, cubeFrag2, cubeFrag3, cubeFrag4, cubeFrag5, cubeFrag6;
+    public GameObject cube, cubeDamege1, cubeDamage2, cubeFrag1, cubeFrag2, cubeFrag3, cubeFrag4, cubeFrag5, cubeFrag6, tile;
     public SO_BoolSwitcher laserBool;
     private WaitForSeconds suspensfullDelay = new WaitForSeconds(.5f);
     private WaitForSeconds ReconstructDelay = new WaitForSeconds(1.5f);
@@ -16,6 +16,8 @@ public class CubeDestruction : MonoBehaviour
     public SO_ColorHolder laserColor;
     public SO_Color TileColor;
     public float allowence =.25f;
+    WaitForSeconds delay = new WaitForSeconds(.3f);
+    WaitForSeconds fragDelay = new WaitForSeconds(3f);
 
     public GameObject setpingTile;
     //private Vector3 origin;
@@ -63,7 +65,9 @@ public class CubeDestruction : MonoBehaviour
         // Debug.Log(TileColor.thisTilesColor.r + "r t");
         // Debug.Log(TileColor.thisTilesColor.g + "g t");
         // Debug.Log(TileColor.thisTilesColor.b + "b t");
+
         
+        yield return delay;
 
         if (TileColor.thisTilesColor.r <= (obliskColor.r +allowence) && TileColor.thisTilesColor.r >= (obliskColor.r -allowence) &&
             TileColor.thisTilesColor.g <= (obliskColor.g +allowence) && TileColor.thisTilesColor.g >= (obliskColor.g -allowence) &&
@@ -81,6 +85,12 @@ public class CubeDestruction : MonoBehaviour
                 frags[i].AddExplosionForce(1000,transform.position,500);
             }
             setpingTile.SetActive(true);
+            yield return fragDelay;
+            for (int i = 0; i < frags.Length; i++)
+            {
+                frags[i].velocity = Vector3.zero;
+                frags[i].angularVelocity = Vector3.zero;
+            }
         }
     }
 
