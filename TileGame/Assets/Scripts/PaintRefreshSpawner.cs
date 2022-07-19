@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PaintRefreshSpawner : MonoBehaviour
 {
-    private SO_Variables paintCarePackage, usedAmnt;
+    //private SO_Variables paintCarePackage, usedAmnt;
     public GridLayout gridhere;
     private WaitForSeconds awaitCubePlace;
     public GameObject instanceObj;
@@ -33,14 +32,14 @@ public class PaintRefreshSpawner : MonoBehaviour
         if (paintUses.intVar > 0)
         {
             
-            Instantiate(Instantiate(instanceObj, cubeSpawn, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn2, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn3, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn4, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn5, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn6, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn7, setRotation));
-            Instantiate(Instantiate(instanceObj, cubeSpawn8, setRotation));
+            Instantiate(instanceObj, cubeSpawn, setRotation);
+            Instantiate(instanceObj, cubeSpawn2, setRotation);
+            Instantiate(instanceObj, cubeSpawn3, setRotation);
+            Instantiate(instanceObj, cubeSpawn4, setRotation);
+            Instantiate(instanceObj, cubeSpawn5, setRotation);
+            Instantiate(instanceObj, cubeSpawn6, setRotation);
+            Instantiate(instanceObj, cubeSpawn7, setRotation);
+            Instantiate(instanceObj, cubeSpawn8, setRotation);
             paintUses.intVar -= 1;
         }
 
