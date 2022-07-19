@@ -18,9 +18,24 @@ public class CubeDestruction : MonoBehaviour
     public float allowence =.25f;
     WaitForSeconds delay = new WaitForSeconds(.3f);
     WaitForSeconds fragDelay = new WaitForSeconds(3f);
+    public SO_PowerCounter totalScore;
+    public SO_CallAction destroyCubesForScore;
+    private bool isDestructed = false;
+    public SO_Variables addPointsToZero, generatePoints, shufflePoints, changePoints;
 
     public GameObject setpingTile;
     //private Vector3 origin;
+
+    private void Awake()
+    {
+        totalScore.powerUpCubes = 0;
+        totalScore.powerUpCubes1 = 0;
+        totalScore.powerUpCubes2 = 0;
+        generatePoints.intVar = 0;
+        shufflePoints.intVar = 0;
+        changePoints.intVar = 0;
+
+    }
 
     private void Start()
     {
@@ -28,11 +43,17 @@ public class CubeDestruction : MonoBehaviour
         colorsOfCubes = GetComponentsInChildren<Renderer>();
         //origin = new Vector3(0, 0, 0);
         setColor();
+        
+        
     }
 
     public void RunDestruction()
     {
-        StartCoroutine(DestructCube(laserColor));
+        if (!isDestructed)
+        {
+            StartCoroutine(DestructCube(laserColor));
+        }
+        
     }
 
     public void setColor()
@@ -73,6 +94,13 @@ public class CubeDestruction : MonoBehaviour
             TileColor.thisTilesColor.g <= (obliskColor.g +allowence) && TileColor.thisTilesColor.g >= (obliskColor.g -allowence) &&
             TileColor.thisTilesColor.b <= (obliskColor.b +allowence )&& TileColor.thisTilesColor.b >= (obliskColor.b -allowence))
         {
+            isDestructed = true;
+            //jjj
+            destroyCubesForScore.CallAction();
+            totalScore.AddCubes();
+            //jjj
+            
+            
             cube.SetActive(false);
             yield return suspensfullDelay;
             cubeDamege1.SetActive(false);
@@ -100,6 +128,7 @@ public class CubeDestruction : MonoBehaviour
     }
     IEnumerator ResetOblisk()
     {
+        addPointsToZero.intVar = 0;
         yield return ReconstructDelay;
         cubeDamage2.SetActive(true);
         setColor();
@@ -116,6 +145,8 @@ public class CubeDestruction : MonoBehaviour
             frags[i].velocity = Vector3.zero;
             frags[i].transform.SetPositionAndRotation(transform.position,new Quaternion(0,0,0,0));
         }
+        
+        isDestructed = false;
     }
 
     public void InstancePathway()

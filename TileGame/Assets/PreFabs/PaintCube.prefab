@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 8402704686620278482}
   - component: {fileID: 8402704686620278485}
   - component: {fileID: 8402704686620278484}
-  - component: {fileID: 858928810852664831}
+  - component: {fileID: 1034510379415048978}
+  - component: {fileID: 7536071426848864854}
   m_Layer: 0
   m_Name: PaintCube
   m_TagString: Paint
@@ -154,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMat: {fileID: 2100000, guid: 15a70051466771040a10bc286ebcba55, type: 2}
   colorCode: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &858928810852664831
+--- !u!114 &1034510379415048978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,27 +164,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 8402704686620278487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee69475ae5cbd34f8cc851b72d6d80f, type: 3}
+  m_Script: {fileID: 11500000, guid: d572e9e8e12e93b4cb9396e33d2dd6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBehaviour:
+  callactionObj: {fileID: 11400000, guid: d795c21acd62caa4c88f871c8a0f8444, type: 2}
+  handleEvent:
     m_PersistentCalls:
-      m_Calls: []
-  awakeBehaviour:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerBehaviour:
-    m_PersistentCalls:
-      m_Calls: []
-  runBehaviour:
-    m_PersistentCalls:
-      m_Calls: []
-  disableBehaviour:
-    m_PersistentCalls:
-      m_Calls: []
-  destroyBehaviour:
-    m_PersistentCalls:
-      m_Calls: []
-  quitBehaviour:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7536071426848864854}
+        m_TargetAssemblyTypeName: Destroyer, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7536071426848864854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402704686620278487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805ae4eb91baf03428c423d34c405149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addPoints: {fileID: 11400000, guid: 710b8447a11fe21458370ef6b37cd603, type: 2}
