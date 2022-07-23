@@ -28,17 +28,18 @@ public class CubeDestruction : MonoBehaviour
 
     private void Awake()
     {
-        totalScore.powerUpCubes = 0;
-        totalScore.powerUpCubes1 = 0;
-        totalScore.powerUpCubes2 = 0;
-        generatePoints.intVar = 0;
-        shufflePoints.intVar = 0;
-        changePoints.intVar = 0;
+         totalScore.powerUpCubes = 0;
+         totalScore.powerUpCubes1 = 0;
+         totalScore.powerUpCubes2 = 0;
+         generatePoints.intVar = 0;
+         shufflePoints.intVar = 0;
+         changePoints.intVar = 0;
 
     }
 
     private void Start()
     {
+        
         frags = GetComponentsInChildren<Rigidbody>();
         colorsOfCubes = GetComponentsInChildren<Renderer>();
         //origin = new Vector3(0, 0, 0);

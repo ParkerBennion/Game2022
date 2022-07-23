@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu]
 public class SO_PowerCounter : ScriptableObject
@@ -7,7 +8,7 @@ public class SO_PowerCounter : ScriptableObject
     public SO_Variables shuffle, generate, change, pointsToAdd;
     public SO_CallAction updateTextAction;
 
-    
+
     public void AddPoint(int amnt)
     {
         powerUpCubes+= amnt;
@@ -27,18 +28,24 @@ public class SO_PowerCounter : ScriptableObject
     {
         if (powerUpCubes >= 15)
         {
+            //shuffel
             powerUpCubes -= 15;
             shuffle.intVar++;
+            //buttonShuffel.clickable.
         }
         if (powerUpCubes1 >= 20)
         {
+            //generate
             powerUpCubes1 -= 20;
             generate.intVar++;
+            //buttonGenerate.interactable = true;
         }
         if (powerUpCubes2 >= 30)
         {
+            //change
             powerUpCubes2 -= 30;
             change.intVar++;
+            //buttonChange.interactable = true;
         }
     }
 }

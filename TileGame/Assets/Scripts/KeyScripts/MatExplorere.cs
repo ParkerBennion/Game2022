@@ -9,6 +9,7 @@ public class MatExplorere : MonoBehaviour
     public Vector4 colorCode;
     private Color codedColor;
     private MeshRenderer rndr;
+    public SO_Variables shuffleCount;
 
     private void Start()
     {
@@ -59,14 +60,31 @@ public class MatExplorere : MonoBehaviour
         //activates scripts
     }
 
+    public void SetRandomUnlessNull()
+    {
+        if (shuffleCount.intVar>=1)
+        {
+            MeshRenderer thisRndr = GetComponent<MeshRenderer>();
+
+            Material randomMaterial;
+            (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,.4f,1f,.6f,1f,.7f,.7f);
+            codedColor = randomMaterial.color;
+        
+            //goes crazy
+        }
+        
+    }
     public void SetRandom()
     {
-        MeshRenderer thisRndr = GetComponent<MeshRenderer>();
-
-        Material randomMaterial;
-        (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,.4f,1f,.6f,1f,.7f,.7f);
-        codedColor = randomMaterial.color;
         
-        //goes crazy
+            MeshRenderer thisRndr = GetComponent<MeshRenderer>();
+
+            Material randomMaterial;
+            (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,.4f,1f,.6f,1f,.7f,.7f);
+            codedColor = randomMaterial.color;
+        
+            //goes crazy
+        
+        
     }
 }

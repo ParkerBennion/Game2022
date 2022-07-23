@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 829064811}
   - component: {fileID: 829064812}
   m_Layer: 5
-  m_Name: ColorButton3
+  m_Name: ChangeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3696,8 +3696,9 @@ GameObject:
   - component: {fileID: 1038505149}
   - component: {fileID: 1038505152}
   - component: {fileID: 1038505153}
+  - component: {fileID: 1038505154}
   m_Layer: 5
-  m_Name: ColorButton
+  m_Name: ShuffelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3768,9 +3769,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4d4718b61c049404f8279fdbb582b316, type: 2}
+      - m_Target: {fileID: 11400000, guid: 81a77c4317b1dad489dc76320888e1de, type: 2}
         m_TargetAssemblyTypeName: SO_CallAction, Assembly-CSharp
         m_MethodName: CallAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1038505154}
+        m_TargetAssemblyTypeName: MathFunctions, Assembly-CSharp
+        m_MethodName: subtract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3861,6 +3874,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1038505154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038505147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295ac1b0cd9b81e45b61d706096b1911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variables: {fileID: 11400000, guid: f005d3a7fc459c249830d079f91feb8b, type: 2}
+  textUpdater: {fileID: 1038505152}
 --- !u!1 &1084526397
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,7 +7072,7 @@ GameObject:
   - component: {fileID: 2014591383}
   - component: {fileID: 2014591384}
   m_Layer: 5
-  m_Name: ColorButton2
+  m_Name: generateButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9076,7 +9103,7 @@ MonoBehaviour:
   destroyCubesForScore: {fileID: 11400000, guid: d795c21acd62caa4c88f871c8a0f8444,
     type: 2}
   addPointsToZero: {fileID: 11400000, guid: 710b8447a11fe21458370ef6b37cd603, type: 2}
-  genratePoints: {fileID: 11400000, guid: e4cbb2b38d66e12448f92d5e8bc0530a, type: 2}
+  generatePoints: {fileID: 11400000, guid: e4cbb2b38d66e12448f92d5e8bc0530a, type: 2}
   shufflePoints: {fileID: 11400000, guid: f005d3a7fc459c249830d079f91feb8b, type: 2}
   changePoints: {fileID: 11400000, guid: 819d3db691a40df43bc3a02640c4ca22, type: 2}
   setpingTile: {fileID: 437141233}

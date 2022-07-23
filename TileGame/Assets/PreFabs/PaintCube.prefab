@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8402704686620278480}
   - component: {fileID: 8402704686620278483}
   - component: {fileID: 8402704686620278482}
+  - component: {fileID: 1034510379415048978}
+  - component: {fileID: 3510574830553279487}
   - component: {fileID: 8402704686620278485}
   - component: {fileID: 8402704686620278484}
-  - component: {fileID: 1034510379415048978}
   - component: {fileID: 7536071426848864854}
   m_Layer: 0
   m_Name: PaintCube
@@ -128,33 +129,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8402704686620278485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8402704686620278487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a6e1d9bdad02b4da967e3b0a8d99ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  giveColorToTile: {fileID: 11400000, guid: 89948e5335533af40a0ec89315d50cb7, type: 2}
---- !u!114 &8402704686620278484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8402704686620278487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e6cd3a9903fa7742aec8f7e67aacb19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newMat: {fileID: 2100000, guid: 15a70051466771040a10bc286ebcba55, type: 2}
-  colorCode: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1034510379415048978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +157,62 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3510574830553279487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402704686620278487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d572e9e8e12e93b4cb9396e33d2dd6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callactionObj: {fileID: 11400000, guid: 81a77c4317b1dad489dc76320888e1de, type: 2}
+  handleEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8402704686620278484}
+        m_TargetAssemblyTypeName: MatExplorere, Assembly-CSharp
+        m_MethodName: SetRandomUnlessNull
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8402704686620278485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402704686620278487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a6e1d9bdad02b4da967e3b0a8d99ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giveColorToTile: {fileID: 11400000, guid: 89948e5335533af40a0ec89315d50cb7, type: 2}
+--- !u!114 &8402704686620278484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402704686620278487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6cd3a9903fa7742aec8f7e67aacb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newMat: {fileID: 2100000, guid: 15a70051466771040a10bc286ebcba55, type: 2}
+  colorCode: {x: 0, y: 0, z: 0, w: 0}
+  shuffleCount: {fileID: 11400000, guid: f005d3a7fc459c249830d079f91feb8b, type: 2}
 --- !u!114 &7536071426848864854
 MonoBehaviour:
   m_ObjectHideFlags: 0
