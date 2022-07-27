@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 200134811}
   - component: {fileID: 200134810}
   m_Layer: 5
-  m_Name: Text
+  m_Name: amnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2629,6 +2629,7 @@ GameObject:
   - component: {fileID: 829064808}
   - component: {fileID: 829064811}
   - component: {fileID: 829064812}
+  - component: {fileID: 829064813}
   m_Layer: 5
   m_Name: ChangeButton
   m_TagString: Untagged
@@ -2704,6 +2705,18 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: 4d4718b61c049404f8279fdbb582b316, type: 2}
         m_TargetAssemblyTypeName: SO_CallAction, Assembly-CSharp
         m_MethodName: CallAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 829064813}
+        m_TargetAssemblyTypeName: MathFunctions, Assembly-CSharp
+        m_MethodName: subtract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2794,6 +2807,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &829064813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829064806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295ac1b0cd9b81e45b61d706096b1911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variables: {fileID: 11400000, guid: 819d3db691a40df43bc3a02640c4ca22, type: 2}
+  textUpdater: {fileID: 829064811}
 --- !u!1 &860288162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3694,8 +3721,8 @@ GameObject:
   - component: {fileID: 1038505151}
   - component: {fileID: 1038505150}
   - component: {fileID: 1038505149}
-  - component: {fileID: 1038505152}
   - component: {fileID: 1038505153}
+  - component: {fileID: 1038505152}
   - component: {fileID: 1038505154}
   m_Layer: 5
   m_Name: ShuffelButton
@@ -7069,8 +7096,10 @@ GameObject:
   - component: {fileID: 2014591382}
   - component: {fileID: 2014591381}
   - component: {fileID: 2014591380}
-  - component: {fileID: 2014591383}
   - component: {fileID: 2014591384}
+  - component: {fileID: 2014591386}
+  - component: {fileID: 2014591383}
+  - component: {fileID: 2014591385}
   m_Layer: 5
   m_Name: generateButton
   m_TagString: Untagged
@@ -7143,9 +7172,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4d4718b61c049404f8279fdbb582b316, type: 2}
-        m_TargetAssemblyTypeName: SO_CallAction, Assembly-CSharp
-        m_MethodName: CallAction
+      - m_Target: {fileID: 2014591386}
+        m_TargetAssemblyTypeName: PaintRefreshSpawner, Assembly-CSharp
+        m_MethodName: StartDeployPackage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: e4cbb2b38d66e12448f92d5e8bc0530a,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SO_Variables, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2014591385}
+        m_TargetAssemblyTypeName: MathFunctions, Assembly-CSharp
+        m_MethodName: subtract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7236,6 +7278,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2014591385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014591378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295ac1b0cd9b81e45b61d706096b1911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variables: {fileID: 11400000, guid: e4cbb2b38d66e12448f92d5e8bc0530a, type: 2}
+  textUpdater: {fileID: 2014591383}
+--- !u!114 &2014591386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014591378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6de8db332fe2f4abead77d4df51975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridhere: {fileID: 1213788819}
+  instanceObj: {fileID: 8402704686620278487, guid: c9c23c1c8f7a8a443ac382fc8c3c06bc,
+    type: 3}
 --- !u!1 &2017569080
 GameObject:
   m_ObjectHideFlags: 0
@@ -7327,7 +7398,7 @@ GameObject:
   - component: {fileID: 2050776128}
   - component: {fileID: 2050776127}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Amnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

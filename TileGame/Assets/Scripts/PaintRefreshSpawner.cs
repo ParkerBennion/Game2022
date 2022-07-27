@@ -40,7 +40,7 @@ public class PaintRefreshSpawner : MonoBehaviour
             Instantiate(instanceObj, cubeSpawn6, setRotation);
             Instantiate(instanceObj, cubeSpawn7, setRotation);
             Instantiate(instanceObj, cubeSpawn8, setRotation);
-            paintUses.intVar -= 1;
+            //paintUses.intVar -= 1;
         }
 
         yield break;
