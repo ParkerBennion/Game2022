@@ -11,7 +11,18 @@ public class MatExplorere : MonoBehaviour
     private MeshRenderer rndr;
     public SO_Variables shuffleCount;
 
-    private void Start()
+    //set variables
+    public float
+        hueMin = 0, hueMax = 1,
+        
+        saturationMin = .4f, saturationMax = 1f,
+        
+        valueMin = .6f, valueMax = 1f,
+        
+        alphaMax = .7f, alphaMin = .7f;
+
+    
+        private void Start()
     {
         codedColor.r = colorCode.x;
         codedColor.g = colorCode.y;
@@ -21,7 +32,7 @@ public class MatExplorere : MonoBehaviour
         rndr.material.color = codedColor;
         SetRandom();
 
-        //manually sets a color
+        //manually sets a color to be referenced
     }
 
 
@@ -57,6 +68,7 @@ public class MatExplorere : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //destroyes paint blocks
         //activates scripts
     }
 
@@ -67,10 +79,11 @@ public class MatExplorere : MonoBehaviour
             MeshRenderer thisRndr = GetComponent<MeshRenderer>();
 
             Material randomMaterial;
-            (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,.4f,1f,.6f,1f,.7f,.7f);
+            (randomMaterial = thisRndr.material).color = Random.ColorHSV(hueMin,hueMax,saturationMin,saturationMax,valueMin,valueMax,alphaMin,alphaMax);
             codedColor = randomMaterial.color;
         
-            //goes crazy
+            //goes crazy and sets colors to random values.
+            // only works if player has powerup points
         }
         
     }
@@ -80,11 +93,10 @@ public class MatExplorere : MonoBehaviour
             MeshRenderer thisRndr = GetComponent<MeshRenderer>();
 
             Material randomMaterial;
-            (randomMaterial = thisRndr.material).color = Random.ColorHSV(0f,1f,.4f,1f,.6f,1f,.7f,.7f);
+            (randomMaterial = thisRndr.material).color = Random.ColorHSV(hueMin,hueMax,saturationMin,saturationMax,valueMin,valueMax,alphaMin,alphaMax);
             codedColor = randomMaterial.color;
         
-            //goes crazy
-        
-        
+            //goes crazy and sets colors to random values.
     }
+    //see SO_Color for mixing functions.
 }

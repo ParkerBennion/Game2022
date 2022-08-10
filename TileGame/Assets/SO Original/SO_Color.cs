@@ -6,10 +6,7 @@ public class SO_Color : ScriptableObject
 {
     public Material tileColor;
     public Material otherColor;
-    public float boundOne;
-    public float boundTwo;
-    public string colorVar;
-    private float redValue,greenValue,blueValue,alphaValue;
+    
     public Color thisTilesColor;
     public Color passedColor;
     
@@ -20,45 +17,37 @@ public class SO_Color : ScriptableObject
     {
         tileColor.color = Color.white;
         
-        // redValue = tileColor.color.r;
-        // greenValue = tileColor.color.g;
-        // blueValue = tileColor.color.b;
-        // alphaValue = tileColor.color.a;|
         thisTilesColor = tileColor.color;
-        // thisTilesColor.r = .0f;
-        // thisTilesColor.g = .0f;
-        // thisTilesColor.b = .0f;
+        
         thisTilesColor.a = .7f;
     }
     
     public void AddColors()
     {
-        // redValue -= otherColor.color.r;
-        // blueValue -= otherColor.color.b;
-        // greenValue -= otherColor.color.g;
-        //thisTilesColor.r -= redValue;
-        
         thisTilesColor.r += otherColor.color.r;
         thisTilesColor.g += otherColor.color.g;
         thisTilesColor.b += otherColor.color.b;
-        //thisTilesColor.a += otherColor.color.a;
+        //adds the current tile color to the color of the paint that has been hit;
 
         thisTilesColor.r *= .5f;
         thisTilesColor.g *= .5f;
         thisTilesColor.b *= .5f;
         thisTilesColor.a = .7f;
-        
-       
+        // divides in half the value to "mix" the colors
 
         thisTilesColor.a = Mathf.Clamp(thisTilesColor.a, 0, 1);
         thisTilesColor.r = Mathf.Clamp(thisTilesColor.r, 0, 1);
         thisTilesColor.g = Mathf.Clamp(thisTilesColor.g, 0, 1);
         thisTilesColor.b = Mathf.Clamp(thisTilesColor.b, 0, 1);
+        //clamps the value into acceptable range in case color values get too high
         
         //Debug.Log(thisTilesColor+"thisTilesColor");
 
         tileColor.color = thisTilesColor;
+        // takes the material of the players cube and sets it to new mixed value.
+        
         passedColor = thisTilesColor;
+        // variable set to use in other scripts.
     }
 
     public void LogColor()
